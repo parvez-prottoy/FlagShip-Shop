@@ -7,6 +7,7 @@ export default function Products({ data }) {
   const [isShowAll, setIsShowAll] = useState(false);
   const handleShowAll = () => {
     setIsShowAll(!isShowAll);
+    if (isShowAll) window.scroll(0, 100);
   };
   useEffect(() => {
     if (isShowAll) {
