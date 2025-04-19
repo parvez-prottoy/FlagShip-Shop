@@ -13,11 +13,17 @@ export default function FavoritePage() {
         favorites.includes(product.id)
       );
       setFavoriteProducts(favoriteProducts);
+    } else {
+      setFavoriteProducts([]);
     }
   }, [data]);
   const handleRemoveFavorite = (id) => {
     removeFavorite(id);
-    setFavoriteProducts(getFavorite());
+    const updatedFavorites = getFavorite();
+    const updatedProducts = data.filter((product) =>
+      updatedFavorites.includes(product.id)
+    );
+    setFavoriteProducts(updatedProducts);
   };
   return (
     <div className="py-12">
