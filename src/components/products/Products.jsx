@@ -19,9 +19,13 @@ export default function Products({ data }) {
   return (
     <div className="py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-        {products.map((product) => (
-          <Product key={product.id} product={product} />
-        ))}
+        {products.length > 0 ? (
+          products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))
+        ) : (
+          <h1 className="text-center text-4xl">No ProductFound!</h1>
+        )}
       </div>
       <div className="text-center">
         <Button handleShowAll={handleShowAll}>
