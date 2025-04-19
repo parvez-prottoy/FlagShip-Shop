@@ -1,7 +1,7 @@
-export default function Button({ children, type, handleShowAll }) {
+export default function Button({ children, type, handleClick }) {
   return (
     <button
-      onClick={handleShowAll}
+      onClick={handleClick}
       type={type}
       className="relative inline-block text-lg group cursor-pointer"
     >

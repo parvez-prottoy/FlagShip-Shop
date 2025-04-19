@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import CartPage from "../pages/CartPage";
 import FavoritePage from "../pages/FavoritePage";
+import ProductDetailPage from "../pages/ProductDetailPage";
 
 export const router = createBrowserRouter([
   {
@@ -13,7 +14,14 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: HomePage,
-        loader: () => fetch("productsData.json"),
+        hydrateFallbackElement: <h1>Loading...</h1>,
+        loader: () => fetch("../productsData.json"),
+      },
+      {
+        path: "products/:productId",
+        Component: ProductDetailPage,
+        hydrateFallbackElement: <h1>Loading...</h1>,
+        loader: () => fetch("../productsData.json"),
       },
       {
         path: "about",
@@ -26,6 +34,8 @@ export const router = createBrowserRouter([
       {
         path: "favorites",
         Component: FavoritePage,
+        hydrateFallbackElement: <h1>Loading...</h1>,
+        loader: () => fetch("../productsData.json"),
       },
     ],
   },

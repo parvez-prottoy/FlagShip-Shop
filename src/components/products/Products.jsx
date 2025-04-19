@@ -28,7 +28,7 @@ export default function Products({ data }) {
         )}
       </div>
       <div className="text-center">
-        <Button handleShowAll={handleShowAll}>
+        <Button handleClick={handleShowAll}>
           Show {isShowAll ? "Less" : "All"}
         </Button>
       </div>
